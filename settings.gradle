@@ -1,0 +1,2 @@
+rootProject.name = 'GradleMonorepo'
+include 'api-bomnhau'
