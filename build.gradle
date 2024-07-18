@@ -1,0 +1,18 @@
+def javaProjects = [
+        project(":api-bomnhau"),
+]
+
+configure(javaProjects) {
+    println "${project.name}"
+//    apply plugin: 'application'
+    group 'com.kits'
+    version '0.0.1-SNAPSHOT'
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+
+    }
+
+}
