@@ -1,5 +1,6 @@
 def javaProjects = [
         project(":api-bomnhau"),
+        project(":api-chatapp"),
 ]
 
 configure(javaProjects) {

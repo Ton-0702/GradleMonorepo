@@ -1,2 +1,3 @@
 rootProject.name = 'GradleMonorepo'
 include 'api-bomnhau'
+include 'api-chatapp'
