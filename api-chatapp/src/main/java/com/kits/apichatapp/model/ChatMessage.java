@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Message {
+@Builder // create parameters easy
+public class ChatMessage {
     private String content;
     private String sender; // tên ng gửi
     private MessageType type;
