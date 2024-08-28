@@ -14,7 +14,7 @@ import java.util.function.Function;
 @Service
 @RequiredArgsConstructor
 public class JwtService {
-    
+
     @Value("${security.jwt.token.secret-key:secret-key}")
     private String secretKey;
 
@@ -22,8 +22,10 @@ public class JwtService {
         return null;
     }
 
+    // extract specific claim object
+    // claimsResolver: get parameter Claims object and return value type T
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
-        final Claims claims = extractAllClaims2(token);
+        final Claims claims = extractAllClaims2(token); // extract all info claims from JWT
         return claimsResolver.apply(claims);
     }
 
