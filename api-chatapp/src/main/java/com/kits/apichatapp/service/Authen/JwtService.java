@@ -27,21 +27,21 @@ public class JwtService {
 
 
     // generate token don't have additional claims (easy)
-        public String generateToken(UserDetails userDetails) {
+    public String generateToken(UserDetails userDetails) {
             return generateToken(new HashMap<>(), userDetails);
-        }
+    }
 
-        // generate token have additional claims (can custom add more info claims to token)
-        public String generateToken(Map<String, Object> extractClaims, UserDetails userDetails) {
+    // generate token have additional claims (can custom add more info claims to token)
+    public String generateToken(Map<String, Object> extractClaims, UserDetails userDetails) {
 
-            return Jwts.builder()
-                    .claims(extractClaims)
-                    .subject(userDetails.getUsername())
-                    .issuedAt(new Date(System.currentTimeMillis())) // Release time at token create
-                    .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24)) // valid for 24 minutes
-                    .signWith(getSignInKey(), SignatureAlgorithm.HS256)
-                    .compact(); // generate and return token
-        }
+        return Jwts.builder()
+                .claims(extractClaims)
+                .subject(userDetails.getUsername())
+                .issuedAt(new Date(System.currentTimeMillis())) // Release time at token create
+                .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24)) // valid for 24 minutes
+                .signWith(getSignInKey(), SignatureAlgorithm.HS256)
+                .compact(); // generate and return token
+    }
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject); // subject: email or username
